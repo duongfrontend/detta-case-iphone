@@ -52,6 +52,10 @@
 .texts {
   font-size: 3.5rem !important;
 }
+.texts1 {
+  font-size: 2.5rem !important;
+  line-height: 50px !important;
+}
 
 @layer base {
   * {
