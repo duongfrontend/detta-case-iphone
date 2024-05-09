@@ -45,12 +45,12 @@ const Navbar = async () => {
                     <span>{user?.given_name}</span>
                     <span className="ml-[5px]">{user?.family_name}</span>
                   </div>
-                  <div className="ml-[5px]">
+                  {/* <div className="ml-[5px]">
                     <img
                       className="w-[30px] rounded-[100px]"
                       src={user?.picture}
                     />
-                  </div>
+                  </div> */}
                 </div>
                 <Link
                   href="/configure/upload"
