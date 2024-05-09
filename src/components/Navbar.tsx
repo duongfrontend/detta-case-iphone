@@ -5,7 +5,6 @@ import { buttonVariants } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 // import Image from "next/image";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { Image } from "antd";
 
 const Navbar = async () => {
   const { getUser } = getKindeServerSession();
