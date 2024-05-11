@@ -72,9 +72,9 @@ export async function POST(req: Request) {
       });
 
       await resend.emails.send({
-        from: "CaseCobra <phuongnguyen12a6@gmail.com>",
+        from: "Detta Case Iphone <phuongnguyen12a6@gmail.com>",
         to: [event.data.object.customer_details.email],
-        subject: "Detta Stack (Đặng Hoàng Dương) . Cảm ơn bạn đã đặt hàng!",
+        subject: "Detta Case Iphone . Cảm ơn bạn đã đặt hàng!",
         react: OrderReceivedEmail({
           orderId,
           orderDate: updatedOrder.createdAt.toLocaleDateString(),

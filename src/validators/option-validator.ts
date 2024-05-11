@@ -19,28 +19,29 @@ export const MODELS = {
   options: [
     {
       label: "IPhone 11 Promax",
-      value: "iphonex",
-    },
-    {
-      label: "IPhone 12 Promax",
       value: "iphone11",
     },
     {
-      label: "IPhone 13 Promax",
+      label: "IPhone 12 Promax",
       value: "iphone12",
     },
     {
-      label: "IPhone 14 Promax",
+      label: "IPhone 13 Promax",
       value: "iphone13",
     },
     {
-      label: "IPhone 15 Promax",
+      label: "IPhone 14 Promax",
       value: "iphone14",
+    },
+    {
+      label: "IPhone 15 Promax",
+      value: "iphone15",
     },
   ],
 } as const;
 
 export const MATERIALS = {
+  names: "Tùy chọn",
   name: "material",
   options: [
     {
@@ -50,27 +51,35 @@ export const MATERIALS = {
       price: PRODUCT_PRICES.material.silicone,
     },
     {
-      label: "Soft Polycarbonate",
+      label: "Nhựa dẻo",
       value: "polycarbonate",
-      description: "Scratch-resistant coating",
+      description: "Lớp phủ chống trầy xước",
       price: PRODUCT_PRICES.material.polycarbonate,
     },
+    // {
+    //   label: "Titanium",
+    //   value: "titanium",
+    //   description: "Lớp phủ chống trầy xước",
+    //   price: PRODUCT_PRICES.material.titanium,
+    // },
   ],
 } as const;
 
 export const FINISHES = {
+  names: "Kiểu dáng",
+
   name: "finish",
   options: [
     {
-      label: "Smooth Finish",
+      label: "Viền trơn",
       value: "smooth",
-      description: undefined,
+      description: "Viền tron 4 góc",
       price: PRODUCT_PRICES.finish.smooth,
     },
     {
-      label: "Textured Finish",
+      label: "Bo viền 4 góc",
       value: "textured",
-      description: "Soft grippy texture",
+      description: "Bo viền 4 góc bảo vệ máy",
       price: PRODUCT_PRICES.finish.textured,
     },
   ],

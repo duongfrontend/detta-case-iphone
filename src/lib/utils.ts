@@ -9,7 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 export const formatPrice = (price: number) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "USD",
+    currency: "VND",
   });
 
   return formatter.format(price);
@@ -42,6 +42,6 @@ export function constructMetadata({
       creator: "@joshtriedcoding",
     },
     icons,
-    metadataBase: new URL("https://dettastack-dev.vercel.app/"),
+    metadataBase: new URL("https://detta-case-iphone.vercel.app"),
   };
 }

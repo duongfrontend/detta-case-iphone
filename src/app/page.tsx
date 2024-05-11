@@ -40,7 +40,7 @@ export default function Home() {
                     Chất liệu cao cấp, bền bỉ
                   </li>
                   <li className="flex gap-1.5 items-center text-left">
-                    <Check className="h-5 w-5 shrink-0 text-[#e11d48]" />5 year
+                    <Check className="h-5 w-5 shrink-0 text-[#e11d48]" />
                     Quy trình in ấn đảm bảo
                   </li>
                   <li className="flex gap-1.5 items-center text-left">

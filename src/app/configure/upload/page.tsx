@@ -33,8 +33,8 @@ const Page = () => {
     setIsDragOver(false);
 
     toast({
-      title: `${file.file.type} type is not supported.`,
-      description: "Please choose a PNG, JPG, or JPEG image instead.",
+      title: `${file.file.type} không được hỗ trợ.`,
+      description: "Vui lòng chọn hình ảnh PNG, JPG hoặc JPEG.",
       variant: "destructive",
     });
   };
@@ -100,7 +100,7 @@ const Page = () => {
                 ) : (
                   <p className="cursor-pointer">
                     <span className="font-semibold">
-                      <span className="text-orange-600 hover:text-orange-400">
+                      <span className="text-rose-600 hover:text-rose-400">
                         Nhấp để tải lên{" "}
                       </span>
                     </span>{" "}

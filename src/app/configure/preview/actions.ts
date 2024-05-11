@@ -16,14 +16,14 @@ export const createCheckoutSession = async ({
   });
 
   if (!configuration) {
-    throw new Error("No such configuration found");
+    throw new Error("Không có thiết kế nào");
   }
 
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
   if (!user) {
-    throw new Error("You need to be logged in");
+    throw new Error("Bạn cần phải đăng nhập");
   }
 
   const { finish, material } = configuration;
@@ -32,6 +32,7 @@ export const createCheckoutSession = async ({
   if (finish === "textured") price += PRODUCT_PRICES.finish.textured;
   if (material === "polycarbonate")
     price += PRODUCT_PRICES.material.polycarbonate;
+  if (material === "silicone") price += PRODUCT_PRICES.material.silicone;
 
   let order: Order | undefined = undefined;
 
@@ -57,10 +58,10 @@ export const createCheckoutSession = async ({
   }
 
   const product = await stripe.products.create({
-    name: "Custom iPhone Case",
+    name: "Thiết Kế Ốp Lưng Iphone",
     images: [configuration.imageUrl],
     default_price_data: {
-      currency: "USD",
+      currency: "VND",
       unit_amount: price,
     },
   });

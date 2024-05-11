@@ -19,6 +19,7 @@ const ThankYou = () => {
     retry: true,
     retryDelay: 500,
   });
+  console.log(data);
 
   if (data === undefined) {
     return (
