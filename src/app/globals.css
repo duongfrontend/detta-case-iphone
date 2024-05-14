@@ -66,6 +66,46 @@
   }
 }
 
+@keyframes zoomItem {
+  from {
+    opacity: 0;
+    transform: rotate(0);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-11deg);
+  }
+}
+@keyframes zoomItem1 {
+  from {
+    opacity: 0;
+    transform: rotate(0);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-11deg);
+  }
+}
+@keyframes zoomItem2 {
+  from {
+    opacity: 0;
+    transform: rotate(0);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-11deg);
+  }
+}
+.animation-item {
+  animation: zoomItem 0.6s linear 1 forwards;
+}
+.animation-item-1 {
+  animation: zoomItem1 0.6s linear 1 forwards;
+}
+.animation-item-2 {
+  animation: zoomItem2 0.6s linear 1 forwards;
+}
+
 .phone-skew {
   transform: perspective(400px) rotateY(3deg) skewX(11.1deg) skewY(-10.9deg);
 }

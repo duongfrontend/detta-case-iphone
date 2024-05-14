@@ -15,7 +15,7 @@ import { changeOrderStatus } from "./actions";
 import { useRouter } from "next/navigation";
 
 const LABEL_MAP: Record<keyof typeof OrderStatus, string> = {
-  awaiting_shipment: "Chờ giao hàng",
+  awaiting_shipment: "Chờ xác nhận",
   fulfilled: "Hoàn thành",
   shipped: "Đang giao hàng",
 };
@@ -42,6 +42,7 @@ const StatusDropdown = ({
           variant="outline"
           className="w-52 flex justify-between items-center">
           {LABEL_MAP[orderStatus]}
+
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </DropdownMenuTrigger>
@@ -62,6 +63,7 @@ const StatusDropdown = ({
                 orderStatus === status ? "opacity-100" : "opacity-0"
               )}
             />
+
             {LABEL_MAP[status as OrderStatus]}
           </DropdownMenuItem>
         ))}

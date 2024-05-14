@@ -25,16 +25,6 @@ const Navbar = async () => {
           <div className="h-full flex items-center space-x-4">
             {user ? (
               <>
-                {isAdmin ? (
-                  <Link
-                    href="/dashboard"
-                    className={buttonVariants({
-                      size: "sm",
-                      variant: "ghost",
-                    })}>
-                    Dashboard ✨
-                  </Link>
-                ) : null}
                 <div
                   className={buttonVariants({
                     size: "sm",
@@ -52,6 +42,16 @@ const Navbar = async () => {
                     />
                   </div> */}
                 </div>
+                {isAdmin ? (
+                  <Link
+                    href="/dashboard"
+                    className={buttonVariants({
+                      size: "sm",
+                      className: "hidden sm:flex items-center gap-1",
+                    })}>
+                    Dashboard ✨
+                  </Link>
+                ) : null}
                 <Link
                   href="/configure/upload"
                   className={buttonVariants({

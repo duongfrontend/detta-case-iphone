@@ -16,7 +16,7 @@ export default function Home() {
               <div className="absolute w-28 left-0 -top-20 hidden lg:block">
                 {/* i forgot this div right here in the video, it's purely visual gradient and looks nice */}
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t via-slate-50/50 from-slate-50 h-28" />
-                <img src="/snake-1.png" className="w-full" />
+                <img src="/okkk.png" className="w-full" />
               </div>
               <h1 className="relative w-fit texts tracking-tight text-balance mt-16 font-bold !leading-tight text-gray-900 md:text-[2.5rem] lg:text-7xl">
                 Tạo Ốp Lưng Iphone theo{" "}
@@ -54,27 +54,27 @@ export default function Home() {
                 <div className="flex -space-x-4">
                   <img
                     className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100"
-                    src="/users/user-1.png"
+                    src="/users/user.jpg"
                     alt="user image"
                   />
                   <img
                     className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100"
-                    src="/users/user-2.png"
+                    src="/users/user.jpg"
                     alt="user image"
                   />
                   <img
                     className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100"
-                    src="/users/user-3.png"
+                    src="/users/user.jpg"
                     alt="user image"
                   />
                   <img
                     className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100"
-                    src="/users/user-4.jpg"
+                    src="/users/user.jpg"
                     alt="user image"
                   />
                   <img
                     className="inline-block object-cover h-10 w-10 rounded-full ring-2 ring-slate-100"
-                    src="/users/user-5.jpg"
+                    src="/users/user.jpg"
                     alt="user image"
                   />
                 </div>
@@ -125,7 +125,7 @@ export default function Home() {
               </span>{" "}
               nói gì
             </h2>
-            <img src="/snake-2.png" className="w-24 order-0 lg:order-2" />
+            <img src="/snake-3.png" className="w-24 order-0 lg:order-2" />
           </div>
 
           <div className="mx-auto grid max-w-2xl grid-cols-1 px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 gap-y-16">
@@ -152,7 +152,7 @@ export default function Home() {
               <div className="flex gap-4 mt-2">
                 <img
                   className="rounded-full h-12 w-12 object-cover"
-                  src="/users/user-1.png"
+                  src="/users/user.jpg"
                   alt="user"
                 />
                 <div className="flex flex-col">
@@ -189,7 +189,7 @@ export default function Home() {
               <div className="flex gap-4 mt-2">
                 <img
                   className="rounded-full h-12 w-12 object-cover"
-                  src="/users/user-4.jpg"
+                  src="/users/user.jpg"
                   alt="user"
                 />
                 <div className="flex flex-col">

@@ -16,14 +16,25 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { db } from "@/db";
-import { formatPrice } from "@/lib/utils";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { cn, formatPrice } from "@/lib/utils";
+import {
+  getKindeServerSession,
+  RegisterLink,
+} from "@kinde-oss/kinde-auth-nextjs/server";
 import { notFound } from "next/navigation";
 import StatusDropdown from "./StatusDropdown";
+import PhonePreview from "@/components/PhonePreview";
+import Phone from "@/components/Phone";
+import { COLORS } from "@/validators/option-validator";
+import { color } from "framer-motion";
 
 const Page = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
+
+  const okeClick = () => {
+    alert("hi");
+  };
 
   const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 
@@ -44,8 +55,15 @@ const Page = async () => {
     include: {
       user: true,
       shippingAddress: true,
+      configuration: true,
     },
   });
+
+  console.log(orders);
+
+  // const tw = COLORS.find(
+  //   (supportedColor) => supportedColor.value === orders.configuration.color
+  // )?.tw;
 
   const lastWeekSum = await db.order.aggregate({
     where: {
@@ -117,10 +135,123 @@ const Page = async () => {
             </Card>
           </div>
 
-          <h1 className="text-4xl font-bold tracking-tight">Đơn đặt hàng</h1>
+          <h1 className="text-4xl font-bold tracking-tight capitalize">
+            tổng số đơn đặt hàng -{" "}
+            <span className="text-primary">{orders.length}</span>
+          </h1>
 
-          <Table>
-            <TableHeader>
+          <div>
+            <div>
+              {orders.map((order) => (
+                <div
+                  key={order.id}
+                  className="relative bg-gray-200 border-b-[1px] border-gray-300 py-[20px]">
+                  <div className="p-[20px] flex justify-between items-center">
+                    <p>Mã đơn hàng: {order.id}</p>
+                    <StatusDropdown id={order.id} orderStatus={order.status} />
+                  </div>
+                  <div>
+                    {order.status === "fulfilled" && (
+                      <div className="animation-item absolute top-[30%] left-[40%] rotate-[-11deg]">
+                        <img width="200px" src="./dau-do.png" alt="" />
+                      </div>
+                    )}
+                    {order.status === "shipped" && (
+                      <div className="animation-item-2 absolute top-[30%] left-[40%] rotate-[-11deg]">
+                        <img width="200px" src="./dau-den-1.png" alt="" />
+                      </div>
+                    )}
+                    {order.status === "awaiting_shipment" && (
+                      <div className="animation-item-1 absolute top-[30%] left-[40%] rotate-[-11deg]">
+                        <img width="200px" src="./dau-xac-nhan.png" alt="" />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* {formatPrice(order.amount)} */}
+
+                  <div className="flex justify-around pt-[20px] h-[max-content] max-[767px]:items-center">
+                    <Phone
+                      className={
+                        `bg-${order.configuration.color}-500 max-w-[150px] rounded-[20px] ml-[20px]`
+                        // "max-w-[150px] md:max-w-full"
+                      }
+                      imgSrc={order.configuration.croppedImageUrl!}
+                    />
+                    <div className="p-[20px] flex justify-center max-[767px]:flex-col border-b-[1px] border-gray-300 h-[max-content]">
+                      {" "}
+                      <div className="flex-1 pl-[3%] flex gap-[20px] flex-col">
+                        <div className="font-bold capitalize">
+                          Thông tin sản phẩm
+                        </div>
+                        <div>
+                          <span className="font-semibold text-gray-800">
+                            Tên case:
+                          </span>
+                          <span className="capitalize">
+                            {order.configuration.model}
+                          </span>{" "}
+                          Promax
+                        </div>
+                        <div>
+                          <span className="font-semibold text-gray-800">
+                            Màu sắc:
+                          </span>{" "}
+                          <span>{order.configuration.color}</span>
+                        </div>
+                        <div>
+                          <span className="font-semibold text-gray-800">
+                            Chất liệu:
+                          </span>{" "}
+                          <span>{order.configuration.material}</span>
+                        </div>
+
+                        <div className="text-rose-800 font-semibold">
+                          <span>Tổng:</span>{" "}
+                          <span>{formatPrice(order.amount)}</span>
+                        </div>
+                      </div>
+                      <div className="flex-1 pl-[2%] pr-[2%] flex gap-[20px] flex-col max-[767px]:mt-[20px]">
+                        <div className="font-bold capitalize">
+                          Thông tin giao hàng
+                        </div>
+                        <div>
+                          <span className="font-semibold text-gray-800">
+                            Họ và tên:
+                          </span>{" "}
+                          <span>{order.shippingAddress?.name}</span>
+                        </div>
+                        <div>
+                          <span className="font-semibold text-gray-800">
+                            Email:
+                          </span>{" "}
+                          <span>{order.user?.email}</span>
+                        </div>
+                        <div>
+                          <span className="font-semibold text-gray-800">
+                            Số điện thoại:
+                          </span>{" "}
+                          <span>
+                            {order.shippingAddress?.phoneNumber ||
+                              "085.835.8586"}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-semibold text-gray-800">
+                            Địa chỉ:
+                          </span>{" "}
+                          <span>{order.shippingAddress?.street}</span>,{" "}
+                          <span>{order.shippingAddress?.city}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* <TableHeader>
               <TableRow>
                 <TableHead>Tên khách hàng</TableHead>
                 <TableHead className="hidden sm:table-cell">
@@ -130,33 +261,39 @@ const Page = async () => {
                   Ngày đặt hàng
                 </TableHead>
                 <TableHead className="text-right">Tổng</TableHead>
+                <TableHead className="text-right">Chi tiết</TableHead>
               </TableRow>
-            </TableHeader>
+            </TableHeader> */}
 
-            <TableBody>
+          {/* <TableBody>
               {orders.map((order) => (
-                <TableRow key={order.id} className="bg-accent">
-                  <TableCell>
-                    <div className="font-medium">
-                      {order.shippingAddress?.name}
-                    </div>
-                    <div className="hidden text-sm text-muted-foreground md:inline">
-                      {order.user.email}
-                    </div>
-                  </TableCell>
-                  <TableCell className="hidden sm:table-cell">
-                    <StatusDropdown id={order.id} orderStatus={order.status} />
-                  </TableCell>
-                  <TableCell className="hidden md:table-cell">
-                    {order.createdAt.toLocaleDateString()}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {formatPrice(order.amount)}
-                  </TableCell>
-                </TableRow>
+                <>
+                  <TableRow key={order.id} className="bg-accent">
+                    <TableCell>
+                      <div className="font-medium">
+                        {order.shippingAddress?.name}
+                      </div>
+                      <div className="hidden text-sm text-muted-foreground md:inline">
+                        {order.user.email}
+                      </div>
+                    </TableCell>
+                    <TableCell className="hidden sm:table-cell">
+                      <StatusDropdown
+                        id={order.id}
+                        orderStatus={order.status}
+                      />
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell">
+                      {order.createdAt.toLocaleDateString()}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {formatPrice(order.amount)}
+                    </TableCell>
+                    <div>ok</div>
+                  </TableRow>
+                </>
               ))}
-            </TableBody>
-          </Table>
+            </TableBody> */}
         </div>
       </div>
     </div>
