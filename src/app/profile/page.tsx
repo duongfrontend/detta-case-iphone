@@ -2,6 +2,7 @@ import { db } from "@/db";
 import { cn, formatPrice } from "@/lib/utils";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Phone from "@/components/Phone";
+import Image from "next/image";
 
 const Page = async () => {
   const { getUser } = getKindeServerSession();
@@ -132,7 +133,7 @@ const Page = async () => {
                               </div>
                               <div>
                                 <span className="font-semibold text-gray-800">
-                                  Tên sản phẩm:
+                                  Tên case:
                                 </span>
                                 <span className="capitalize">
                                   {order.configuration.model}
