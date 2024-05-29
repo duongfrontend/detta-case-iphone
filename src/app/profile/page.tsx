@@ -74,7 +74,11 @@ const Page = async () => {
             </h1>
             <div className="flex max-[567px]:flex-col justify-start items-center gap-5 pt-[20px] px-[20px]">
               <div className="rounded-[100%]">
-                <img className="rounded-[100%]" src={user?.picture} alt="img" />
+                <img
+                  className="rounded-[100%]"
+                  src={user?.picture!}
+                  alt="img"
+                />
               </div>
               <div className="max-[567px]:text-[14px] max-[567px]:border-t-[1px] max-[567px]:border-l-[0px] gap-4 flex flex-col border-l-[1px] border-[#ccc] p-[20px]">
                 <div>

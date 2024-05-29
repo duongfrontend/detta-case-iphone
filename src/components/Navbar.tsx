@@ -49,7 +49,7 @@ const Navbar = async () => {
                     })}>
                     <img
                       className="rounded-full w-[32px]"
-                      src={user.picture}
+                      src={user.picture!}
                       alt="img"
                     />
                     <span className="ml-[5px]">Trang cá nhân</span>
