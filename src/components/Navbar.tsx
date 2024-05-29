@@ -1,15 +1,16 @@
 /* eslint-disable jsx-a11y/alt-text */
+
 import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import { buttonVariants } from "./ui/button";
-import { ArrowRight } from "lucide-react";
+import { buttonVariants, buttonVariants2 } from "./ui/button";
+import { ArrowRight, LogOut, Menu } from "lucide-react";
 // import Image from "next/image";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 const Navbar = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-  console.log(user);
+  // console.log(user);
 
   const isAdmin = user?.email === process.env.ADMIN_EMAIL;
 
@@ -29,29 +30,33 @@ const Navbar = async () => {
                   className={buttonVariants({
                     size: "sm",
                     variant: "ghost",
-                  })}>
-                  <div className="cursor-default">
-                    <span>Xin chào : </span>
-                    <span>{user?.given_name}</span>
-                    <span className="ml-[5px]">{user?.family_name}</span>
-                  </div>
-                  {/* <div className="ml-[5px]">
-                    <img
-                      className="w-[30px] rounded-[100px]"
-                      src={user?.picture}
-                    />
-                  </div> */}
-                </div>
+                  })}></div>
                 {isAdmin ? (
                   <Link
                     href="/dashboard"
                     className={buttonVariants({
                       size: "sm",
-                      className: "hidden sm:flex items-center gap-1",
+                      className: "flex items-center gap-1",
                     })}>
-                    Dashboard ✨
+                    Trang Admin ✨
                   </Link>
-                ) : null}
+                ) : (
+                  <Link
+                    href="/profile"
+                    className={buttonVariants({
+                      size: "sm",
+                      className: "flex items-center gap-1",
+                    })}>
+                    <img
+                      className="rounded-full w-[32px]"
+                      src={user.picture}
+                      alt="img"
+                    />
+                    <span className="ml-[5px]">Trang cá nhân</span>
+                    <ArrowRight className="ml-1.5 h-5 w-5 " />
+                  </Link>
+                )}
+
                 <Link
                   href="/configure/upload"
                   className={buttonVariants({
@@ -66,9 +71,10 @@ const Navbar = async () => {
                   className={buttonVariants({
                     size: "sm",
                     className:
-                      "hidden sm:flex items-center gap-1 bg-red-700 text-white hover:bg-red-400",
+                      "flex items-center gap-1 bg-red-700 text-white hover:bg-red-400",
                   })}>
-                  Đăng xuất
+                  <span className="hidden sm:flex">Đăng xuất</span>
+                  <LogOut className="sm:hidden" />
                 </Link>
               </>
             ) : (
