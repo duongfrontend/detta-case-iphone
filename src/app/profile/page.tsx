@@ -132,7 +132,7 @@ const Page = async () => {
                               </div>
                               <div>
                                 <span className="font-semibold text-gray-800">
-                                  Tên case:
+                                  Tên sản phẩm:
                                 </span>
                                 <span className="capitalize">
                                   {order.configuration.model}
