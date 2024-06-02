@@ -3,6 +3,9 @@ import { cn, formatPrice } from "@/lib/utils";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Phone from "@/components/Phone";
 import Image from "next/image";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const Page = async () => {
   const { getUser } = getKindeServerSession();

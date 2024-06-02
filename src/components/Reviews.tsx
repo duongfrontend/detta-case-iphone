@@ -7,11 +7,11 @@ import { cn } from "@/lib/utils";
 import Phone from "./Phone";
 
 const PHONES = [
-  "/testimonials/1.jpeg",
-  "/testimonials/2.jpeg",
-  "/testimonials/3.jpeg",
-  "/testimonials/4.jpeg",
-  "/testimonials/5.webp",
+  "/testimonials/26.jpeg",
+  "/testimonials/24.webp",
+  "/testimonials/16.jpeg",
+  "/testimonials/19.jpeg",
+  "/testimonials/21.webp",
   "/testimonials/6.jpeg",
 ];
 

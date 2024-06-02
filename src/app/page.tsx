@@ -107,7 +107,7 @@ export default function Home() {
                 src="/line.png"
                 className="absolute w-20 -left-6 -bottom-6 select-none"
               />
-              <Phone className="w-64" imgSrc="/testimonials/11.webp" />
+              <Phone className="w-64" imgSrc="/testimonials/25.webp" />
             </div>
           </div>
         </MaxWidthWrapper>
@@ -125,7 +125,7 @@ export default function Home() {
               </span>{" "}
               nói gì
             </h2>
-            <img src="/snake-3.png" className="w-24 order-0 lg:order-2" />
+            {/* <img src="/13.png" className="w-24 order-0 lg:order-2" /> */}
           </div>
 
           <div className="mx-auto grid max-w-2xl grid-cols-1 px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 gap-y-16">
@@ -232,12 +232,12 @@ export default function Home() {
 
               <div className="relative h-80 md:h-full w-full md:justify-self-end max-w-sm rounded-xl bg-gray-900/5 ring-inset ring-gray-900/10 lg:rounded-2xl">
                 <img
-                  src="/horse.webp"
+                  src="/horse.jpeg"
                   className="rounded-md object-cover bg-white shadow-2xl ring-1 ring-gray-900/10 h-full w-full"
                 />
               </div>
 
-              <Phone className="w-60" imgSrc="/horse.webp" />
+              <Phone className="w-60" imgSrc="/horse.jpeg" />
             </div>
           </div>
 
